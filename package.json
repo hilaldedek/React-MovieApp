@@ -3,12 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@headlessui/react": "^1.7.14",
+    "@heroicons/react": "^2.0.17",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
     "@testing-library/user-event": "^13.2.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-router-dom": "6",
     "react-scripts": "5.0.1",
+    "react-use-navigate": "^0.1.1",
+    "tw-elements": "^1.0.0-beta2",
     "web-vitals": "^2.1.0"
   },
   "scripts": {
@@ -34,5 +39,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.3.2"
   }
 }

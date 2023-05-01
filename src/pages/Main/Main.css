@@ -1,0 +1,12 @@
+#searchSection{
+    background-image: url("../../assets/icons/search1.gif");
+}
+#inputSection{
+    position: relative;
+    margin: auto;
+    
+}
+#buttonSection{
+    position: relative;
+    margin: auto;
+}
