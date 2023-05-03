@@ -3,7 +3,7 @@ import "./Main.css"
 
 const Main = () => {
   return (
-    <div id="searchSection" className='rounded-md shadow-sm relative flex flex-wrap mx-auto isolate overflow-hidden bg-gray-900 py-16 sm:py-24 lg:py-32'>
+    <div id="searchSection" className='shadow-sm relative flex flex-wrap mx-auto isolate overflow-hidden bg-gray-900 py-16 sm:py-24 lg:py-32'>
       <div className='relative mx-auto mt-5 mb-5'>
         <input
           type="text"
