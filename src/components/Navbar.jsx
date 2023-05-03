@@ -38,7 +38,7 @@ const Navbar = () => {
           <a href="/register" className="text-sm font-semibold leading-6 text-gray-900 mr-8">
             Register <span aria-hidden="true">&rarr;</span>
           </a>
-          <a href="/register" className="text-sm font-semibold leading-6 text-gray-900">
+          <a href="/" className="text-sm font-semibold leading-6 text-gray-900">
             Logout <span aria-hidden="true">&rarr;</span>
           </a>
         </div>
@@ -72,7 +72,7 @@ const Navbar = () => {
                   Register
                 </a>
                 <a
-                  href="/register"
+                  href="/"
                   className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
                   Logout
