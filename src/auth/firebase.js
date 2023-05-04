@@ -1,20 +1,24 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+//* Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyB1yTQQIM-EUEhkCkbsfUWoEpLYDtDPgh4",
-  authDomain: "movieapp-fabac.firebaseapp.com",
-  projectId: "movieapp-fabac",
-  storageBucket: "movieapp-fabac.appspot.com",
-  messagingSenderId: "463058818026",
-  appId: "1:463058818026:web:296f645094dd95944b5893",
-  measurementId: "G-N6QY7MXFWN"
+  apiKey: process.env.REACT_APP_apiKey,
+  authDomain: process.env.REACT_APP_authDomain,
+  projectId: process.env.REACT_APP_projectId,
+  storageBucket: process.env.REACT_APP_storageBucket,
+  messagingSenderId: process.env.REACT_APP_messagingSenderId,
+  appId: process.env.REACT_APP_appId,
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+// Initialize Firebase Authentication and get a reference to the service
+const auth = getAuth(app);
+export const createUser = async(email,password) =>{
+  try{
+    let userCredential =await createUserWithEmailAndPassword(auth, email, password)
+  }catch(error){
+    console.log(error);
+  }
+}
