@@ -95,7 +95,7 @@ const Register = () => {
                 <div  className="mt-6 flex max-w-md gap-x-4 mr-7" >
                   <button
                   type="submit"
-                  className="flex-none rounded-md bg-danger-100 px-3.5 py-2.5 text-sm font-semibold text-black shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 mx-auto" onClick={handleSubmit}
+                  className="flex-none rounded-md bg-danger-100 px-3.5 py-2.5 text-sm font-semibold text-black shadow-sm hover:bg-danger-200  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 mx-auto" onClick={handleSubmit}
                 >
                   Register
                 </button>
@@ -103,7 +103,7 @@ const Register = () => {
               <div  className="mt-6 flex max-w-md gap-x-4">
                 <button
                 type="button"
-                className="flex-none rounded-md bg-danger-100 px-3.5 py-2.5 text-sm font-semibold text-black shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 mx-auto"
+                className="flex-none rounded-md bg-danger-100 px-3.5 py-2.5 text-sm font-semibold text-black shadow-sm hover:bg-danger-200  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 mx-auto"
               >
                 Countinue with Google<GoogleIcon/>
               </button>

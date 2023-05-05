@@ -1,45 +1,24 @@
-import React from 'react'
+import React,{ useState } from 'react'
 import GoogleIcon from '../assets/icons/GoogleIcon'
 
 const Login = () => {
+  const[email,setEmail]=useState("");
+  const[password,setPassword]=useState("");
+  const handleSubmit=(e)=>{
+    e.preventDefault();
+    console.log(email,password);
+  }
   return (
-    <div>
-      <div className="relative isolate overflow-hidden bg-gray-900 py-16 sm:py-24 lg:py-32 ">
+    <div> 
+      <div className="relative isolate overflow-hidden bg-gray-900 py-16 sm:py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2">
-          <div className="max-w-xl lg:max-w-lg">
+          <div className="max-w-xl lg:max-w-lg" >
             <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">Welcome to Hilal's Movie App</h2>
             <p className="mt-4 text-lg leading-8 text-gray-300">
             Login if you have a registered account or register
             </p>
-            <div className="mt-6 flex max-w-md gap-x-4">
-              <label htmlFor="first-name" className="sr-only">
-                First Name
-              </label>
-              <input
-                id="first-name"
-                name="firstname"
-                type="text"
-                autoComplete="text"
-                required
-                className="min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
-                placeholder="Enter your First Name"
-              />
-              </div>
-              <div className="mt-6 flex max-w-md gap-x-4">
-              <label htmlFor="surname" className="sr-only">
-                Surname
-              </label>
-              <input
-                id="surname"
-                name="surname"
-                type="text"
-                autoComplete="text"
-                required
-                className="min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
-                placeholder="Enter your Surname"
-              />
-              </div>
+            <form onSubmit={handleSubmit}>
             <div className="mt-6 flex max-w-md gap-x-4">
               <label htmlFor="email-address" className="sr-only">
                 Email address
@@ -52,6 +31,7 @@ const Login = () => {
                 required
                 className="min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
                 placeholder="Enter your email"
+                onChange={(e)=>setEmail(e.target.value)}
               />
               </div>
               <div  className="mt-6 flex max-w-md gap-x-4">
@@ -66,31 +46,42 @@ const Login = () => {
                   required
                   className="min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
                   placeholder="Enter your password"
+                  onChange={(e)=>setPassword(e.target.value)}
                 />
               </div>
+            </form>
+            
               <div className="text-sm">
                   <a href="#" className="font-semibold text-indigo-400 hover:text-indigo-500">
                     Forgot password?
                   </a>
                 </div>
-                <div className='flex'>
-                  <div  className="mt-6 flex max-w-md gap-x-4  mr-7">
+              <div className='flex'>
+                <div  className="mt-6 flex max-w-md gap-x-4 mr-7" >
                   <button
                   type="submit"
-                  className="flex-none rounded-md bg-danger-100 px-3.5 py-2.5 text-sm font-semibold text-black shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
+                  className="flex-none rounded-md bg-danger-100 px-3.5 py-2.5 text-sm font-semibold text-black shadow-sm hover:bg-danger-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 mx-auto" onClick={handleSubmit}
                 >
-                  Register
+                  Login
                 </button>
               </div>
-              <div  className="mt-6 flex max-w-md gap-x-4">
+              <div  className="mt-6 flex max-w-md gap-x-4 mr-7">
                 <button
-                type="submit"
-                className="flex-none rounded-md bg-danger-100 px-3.5 py-2.5 text-sm font-semibold text-black shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
+                type="button"
+                className="flex-none rounded-md bg-danger-100 px-3.5 py-2.5 text-sm font-semibold text-black shadow-sm hover:bg-danger-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 mx-auto"
               >
-                Countinue with Google
+                Countinue with Google<GoogleIcon/>
               </button>
               </div>
+              <div  className="mt-6 flex max-w-md gap-x-4">
+              <button
+                  type="submit"
+                  className="flex-none rounded-md bg-danger-100 px-3.5 py-2.5 text-sm font-semibold text-black shadow-sm hover:bg-danger-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 mx-auto" onClick={handleSubmit}
+                >
+                  Sign Up
+                </button>
                 </div>
+              </div>
               
               
           </div>

@@ -1,5 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
+import { ToastContainer, toast } from "react-toastify";
 
 //* Your web app's Firebase configuration
 const firebaseConfig = {
@@ -17,8 +18,11 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 export const createUser = async(email,password) =>{
   try{
-    let userCredential =await createUserWithEmailAndPassword(auth, email, password)
+    let userCredential =await createUserWithEmailAndPassword(auth, email, password);
+    console.log(userCredential);
   }catch(error){
-    console.log(error);
+    if(error.code === "auth/email-already-in-use"){
+      alert("auth/email-already-in-use")
+    }
   }
 }

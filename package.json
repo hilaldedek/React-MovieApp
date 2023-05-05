@@ -13,6 +13,7 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "6",
     "react-scripts": "5.0.1",
+    "react-toastify": "^9.1.2",
     "react-use-navigate": "^0.1.1",
     "tw-elements": "^1.0.0-beta2",
     "web-vitals": "^2.1.0"
