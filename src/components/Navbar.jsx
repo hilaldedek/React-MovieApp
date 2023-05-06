@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import movieIcon from "../assets/icons/movie.png"
+import counterGif from "../assets/icons/counter.gif"
 import { Dialog} from '@headlessui/react'
 import {
   Bars3Icon,
@@ -77,8 +78,9 @@ const Navbar = () => {
                 >
                   Logout
                 </a>
+                <img src={counterGif}/>
               </div>
-            </div>
+            </div> 
           </div>
         </Dialog.Panel>
       </Dialog>

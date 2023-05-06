@@ -20,9 +20,9 @@ const Register = () => {
         <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2">
           <div className="max-w-xl lg:max-w-lg" >
             <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">Welcome to Hilal's Movie App</h2>
-            <p className="mt-4 text-lg leading-8 text-gray-300">
-            Login if you have a registered account or register
-            </p>
+            <h3 className="mt-4 text-2xl leading-8 text-gray-300 text-center">
+            Register
+            </h3>
             <form onSubmit={handleSubmit}>
               <div className="mt-6 flex max-w-md gap-x-4">
               <label htmlFor="first-name" className="sr-only">
@@ -103,9 +103,9 @@ const Register = () => {
               <div  className="mt-6 flex max-w-md gap-x-4">
                 <button
                 type="button"
-                className="flex-none rounded-md bg-danger-100 px-3.5 py-2.5 text-sm font-semibold text-black shadow-sm hover:bg-danger-200  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 mx-auto"
+                className="flex justify-center items-center rounded-md bg-danger-100 px-3.5 py-2.5 text-sm font-semibold text-black shadow-sm hover:bg-danger-200  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 mx-auto"
               >
-                Countinue with Google<GoogleIcon/>
+                Countinue with Google<GoogleIcon className="ml-1"/>
               </button>
               </div>
               </div>
