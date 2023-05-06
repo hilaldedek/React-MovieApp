@@ -14,7 +14,7 @@ const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   return (
     <div>
-        <header className="bg-danger-100">
+        <header className="bg-indigo-300">
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
         <div className="flex lg:flex-1">
           <Link to="/" className="-m-1.5 p-1.5">
@@ -34,13 +34,13 @@ const Navbar = () => {
         
         <div className="hidden lg:flex lg:flex-1 lg:justify-end ">
           <a href="/login" className="text-sm font-semibold leading-6 text-gray-900 mr-8">
-            Log in <span aria-hidden="true">&rarr;</span>
+            Log in
           </a>
           <a href="/register" className="text-sm font-semibold leading-6 text-gray-900 mr-8">
-            Register <span aria-hidden="true">&rarr;</span>
+            Register
           </a>
           <a href="/" className="text-sm font-semibold leading-6 text-gray-900">
-            Logout <span aria-hidden="true">&rarr;</span>
+            Logout
           </a>
         </div>
       </nav>
@@ -78,7 +78,7 @@ const Navbar = () => {
                 >
                   Logout
                 </a>
-                <img src={counterGif}/>
+                <img src={counterGif} alt="counter"/>
               </div>
             </div> 
           </div>

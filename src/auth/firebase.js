@@ -1,5 +1,7 @@
 import { initializeApp } from "firebase/app";
-import { createUserWithEmailAndPassword, getAuth,signInWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth,signInWithEmailAndPassword,
+  onAuthStateChanged,
+  signOut} from "firebase/auth";
 
 
 //* Your web app's Firebase configuration
@@ -34,4 +36,19 @@ export const signIn = async (email, password, navigate) => {
   } catch (error) {
     alert(error.message);
   }
+};
+export const userObserver = (setCurrentUser) => {
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      const { email, displayName, photoURL } = user;
+      setCurrentUser({ email, displayName, photoURL });
+      console.log(user);
+    } else {
+      setCurrentUser(false);
+      console.log("user signed out");
+    }
+  });
+};
+export const logOut = () => {
+  signOut(auth);
 };
