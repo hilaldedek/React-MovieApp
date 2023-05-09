@@ -4,7 +4,7 @@ const Footer = () => {
     const year=new Date().getFullYear();
   return (
     <div>
-         <footer className="bg-indigo-300 text-center text-gray-700 left-0 bottom-0 right-0">
+         <footer className="bg-indigo-100 text-center text-gray-700 left-0 bottom-0 right-0">
         <div className="container px-6 pt-6 relative m-auto">
           <div className="mb-6 flex justify-center">
             <a href="#!" type="button" className="m-1 h-9 w-9 rounded-full border-2 border-gray-800 uppercase leading-normal text-gray-800 transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0" data-te-ripple-init data-te-ripple-color="light">

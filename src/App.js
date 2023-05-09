@@ -4,7 +4,7 @@ import { userObserver } from "./auth/firebase";
 
 const App = () => {
   useEffect(()=>{
-    userObserver();
+    userObserver()
   },[])
   return (
     <div>
