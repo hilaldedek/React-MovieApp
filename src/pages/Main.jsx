@@ -1,7 +1,21 @@
-import React from 'react'
-import "./Main.css"
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
+
+
+// bu kısımda hata var
+const API_KEY = process.env.REACT_APP_TMDB_KEY;
+const FEATURED_API = `https://api.themoviedb.org/3/movie/550?api_key=${API_KEY}`;
+const SEARCH_API = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=`;
+//bu kısımda hata var
 
 const Main = () => {
+  const [movies,setMovie]=useState([]);
+  useEffect(()=>{
+    getMovies(FEATURED_API);
+  },[])
+  const getMovies= (API)=>{
+    axios.get(API).then((res)=>console.log(res)).catch((err)=>console.log(err));
+  }
   return (
     <div id="searchSection" className='shadow-sm relative flex flex-wrap mx-auto isolate overflow-hidden bg-gray-900 py-16 sm:py-24 lg:py-32'>
       <div className='relative mx-auto mt-5 mb-5'>
@@ -16,7 +30,7 @@ const Main = () => {
               <button
                   type="submit"
                   id="buttonSection"
-                  className="flex-none rounded-md bg-indigo-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
+                  className="flex-none rounded-md bg-danger-100 px-3.5 py-2.5 text-sm font-semibold text-black shadow-sm hover:bg-danger-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
                 >
                   Search
                 </button>

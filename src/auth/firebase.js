@@ -2,7 +2,8 @@ import { initializeApp } from "firebase/app";
 import { createUserWithEmailAndPassword, getAuth,signInWithEmailAndPassword,
   onAuthStateChanged,
   signOut,
-  updateProfile} from "firebase/auth";
+  updateProfile,
+  signInWithPopup,GoogleAuthProvider} from "firebase/auth";
 
 
 //* Your web app's Firebase configuration
@@ -47,6 +48,7 @@ export const userObserver = (setCurrentUser) => {
       const {email,displayName}=user;
       setCurrentUser({email,displayName})
     } else {
+      setCurrentUser(false);
      console.log("user signed out");
     }
   });
@@ -55,3 +57,26 @@ export const userObserver = (setCurrentUser) => {
 export const logOut = () => {
   signOut(auth);
 };
+
+export const signUpWithGoogle = (navigate) => {
+  const provider = new GoogleAuthProvider();
+  signInWithPopup(auth, provider)
+    .then((result) => {
+      console.log(result);
+      navigate("/");
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
+// export const forgotPassword = (email) => {
+//   sendPasswordResetEmail(auth, email)
+//     .then(() => {
+//       toastWarnNotify("Please check your mail box!");
+//     })
+//     .catch((err) => {
+//       toastErrorNotify(err.message);
+//       // alert(err.message);
+//       // ..
+//     });
+// };

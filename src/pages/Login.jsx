@@ -1,9 +1,10 @@
 import React,{ useState } from 'react'
 import GoogleIcon from '../assets/icons/GoogleIcon'
 import { Link } from 'react-router-dom';
-import { signIn } from '../auth/firebase';
+import { signIn, signUpWithGoogle } from '../auth/firebase';
 import useNavigate from 'react-use-navigate';
-
+import gif from '../assets/icons/register.gif';
+import counterGif from "../assets/icons/counter.gif"
 
 const Login = () => {
   const[email,setEmail]=useState("");
@@ -14,12 +15,15 @@ const Login = () => {
     signIn(email,password,navigate);
     console.log(email,password);
   }
+  const handleGoogleProvider = ()=>{
+    signUpWithGoogle(navigate);
+  }
   return (
     <div> 
       <div className="relative isolate overflow-hidden bg-gray-900 py-16 sm:py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2">
-          <div className="max-w-xl lg:max-w-lg" >
+          <div className="max-w-xl lg:max-w-lg flex-row " >
             <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">Welcome to Hilal's Movie App</h2>
             <h3 className="mt-4 text-2xl leading-8 text-gray-300 text-center">
             Sign In
@@ -75,7 +79,7 @@ const Login = () => {
                 
                 <button
                 type="button"
-                className="flex justify-center items-center rounded-md bg-danger-100 px-3.5 py-2.5 text-sm font-semibold text-black shadow-sm hover:bg-danger-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 mx-auto"
+                className="flex justify-center items-center rounded-md bg-danger-100 px-3.5 py-2.5 text-sm font-semibold text-black shadow-sm hover:bg-danger-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 mx-auto" onClick={handleGoogleProvider}
               >
                 Countinue with Google<GoogleIcon className="ml-1"/>
               </button>
@@ -92,6 +96,8 @@ const Login = () => {
               
               
           </div>
+
+            <img src={gif}  alt='gif'/>
         </div>
       </div>
       <div className="absolute left-1/2 top-0 -z-10 -translate-x-1/2 blur-3xl xl:-top-6" aria-hidden="true">
