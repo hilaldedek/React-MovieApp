@@ -2,19 +2,50 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 
 
-// bu kısımda hata var
-const API_KEY = process.env.REACT_APP_TMDB_KEY;
-const FEATURED_API = `https://api.themoviedb.org/3/movie/550?api_key=${API_KEY}`;
-const SEARCH_API = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=`;
-//bu kısımda hata var
 
 const Main = () => {
   const [movies,setMovie]=useState([]);
+  const [name,setName]=useState("harry potter");
+  console.log(name);
+
   useEffect(()=>{
-    getMovies(FEATURED_API);
-  },[])
-  const getMovies= (API)=>{
-    axios.get(API).then((res)=>console.log(res)).catch((err)=>console.log(err));
+    defaultMovies(name);
+  },[]);
+ const defaultMovies=async function(){
+  const url = 'https://moviesdatabase.p.rapidapi.com/titles/x/upcoming';
+  const options = {
+    method: 'GET',
+    headers: {
+      'X-RapidAPI-Key': '45634f047emshb082abb773a3073p1e5f93jsn4c18eeb6f338',
+      'X-RapidAPI-Host': 'moviesdatabase.p.rapidapi.com'
+    }
+  };
+  
+  try {
+    const response = await fetch(url, options);
+    const result = await response.json();
+    console.log(result);
+  } catch (error) {
+    console.error(error);
+  }
+ }
+  const getMovies=async function(){
+    const url = `https://moviesdatabase.p.rapidapi.com/titles/search/keyword/${name}`;
+const options = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': '45634f047emshb082abb773a3073p1e5f93jsn4c18eeb6f338',
+		'X-RapidAPI-Host': 'moviesdatabase.p.rapidapi.com'
+	}
+};
+
+try {
+	const response = await fetch(url, options);
+	const result = await response.json();
+	console.log(result);
+} catch (error) {
+	console.error(error);
+}
   }
   return (
     <div id="searchSection" className='shadow-sm relative flex flex-wrap mx-auto isolate overflow-hidden bg-gray-900 py-16 sm:py-24 lg:py-32'>
