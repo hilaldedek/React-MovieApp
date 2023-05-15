@@ -10,7 +10,7 @@ const AuthContextProvider = ({children}) => {
     userObserver(setCurrentUser);
   },[])
   return (
-    <AuthContext.Provider value={{currentUser}}>{children}</AuthContext.Provider>
+    <AuthContext.Provider value={{currentUser,setCurrentUser}}>{children}</AuthContext.Provider>
   )
 }
 

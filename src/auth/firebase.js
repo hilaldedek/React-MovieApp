@@ -4,6 +4,8 @@ import { createUserWithEmailAndPassword, getAuth,signInWithEmailAndPassword,
   signOut,
   updateProfile,
   signInWithPopup,GoogleAuthProvider} from "firebase/auth";
+import { useContext } from "react";
+import { AuthContext } from "../context/AuthContextProvider";
 
 
 //* Your web app's Firebase configuration
@@ -15,7 +17,7 @@ const firebaseConfig = {
   messagingSenderId: process.env.REACT_APP_messagingSenderId,
   appId: process.env.REACT_APP_appId,
 };
-
+const{currentUser,setCurrentUser}=useContext(AuthContext);
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 // Initialize Firebase Authentication and get a reference to the service
@@ -49,7 +51,7 @@ export const userObserver = (setCurrentUser) => {
       setCurrentUser({email,displayName})
     } else {
       setCurrentUser(false);
-     console.log("user signed out");
+      console.log("user signed out");
     }
   });
 };
