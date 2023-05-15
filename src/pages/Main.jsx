@@ -1,12 +1,15 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
+import MainCards from '../components/MainCards';
 
 
 
 const Main = () => {
   const [movies,setMovie]=useState([]);
+  const [mainMovie,setmainMovie]=useState("");
   const [name,setName]=useState("harry potter");
-  console.log(name);
+  const [finalresult,setfinalresult]=useState("");
+  // console.log(name);
 
   useEffect(()=>{
     defaultMovies(name);
@@ -24,7 +27,9 @@ const Main = () => {
   try {
     const response = await fetch(url, options);
     const result = await response.json();
-    console.log(result);
+    setfinalresult(Object.values(result)[3]);
+    // console.log(finalResult);
+    // console.log(typeof(finalResult));
   } catch (error) {
     console.error(error);
   }
@@ -47,6 +52,7 @@ try {
 	console.error(error);
 }
   }
+  console.log(finalresult);
   return (
     <div id="searchSection" className='shadow-sm relative flex flex-wrap mx-auto isolate overflow-hidden bg-gray-900 py-16 sm:py-24 lg:py-32'>
       <div className='relative mx-auto mt-5 mb-5'>
@@ -66,6 +72,14 @@ try {
                   Search
                 </button>
     </div>
+     
+    {/* {finalresult?.map((item)=>{
+      return(
+        <h2>{item}</h2>
+      )
+    })} */}
+    
+
     <div className="absolute left-1/2 top-0 -z-10 -translate-x-1/2 blur-3xl xl:-top-6" aria-hidden="true">
         <div
           className="aspect-[1155/678] w-[72.1875rem] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30"

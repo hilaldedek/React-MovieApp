@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { signIn, signUpWithGoogle } from '../auth/firebase';
 import useNavigate from 'react-use-navigate';
 import gif from '../assets/icons/register.gif';
-import counterGif from "../assets/icons/counter.gif"
 
 const Login = () => {
   const[email,setEmail]=useState("");
