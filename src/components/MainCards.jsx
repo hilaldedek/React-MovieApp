@@ -1,20 +1,22 @@
-import React from 'react'
+import React from 'react';
+import defaultImage from '../assets/icons/defaultImage.jpeg';
 
-const MainCards = ({item}) => {
+const MainCards = ({ item }) => {
   console.log(item);
-  <div className='flex-wrap'>
-
-  
-    {item?.map(({...item},index)=>{
-      console.log(item?.titleText?.text);
-      return (
-          <div className='text-black' key={index}>
-              <p>{item?.titleText?.text}</p>
+  return (
+    <div className='flex flex-wrap'>
+      {item?.map((item, index) => {
+        console.log(item?.titleText?.text);
+        return (
+          <div className='text-black justify-center items-center ' key={index}>
+            <img src={item?.primaryImage?.url || defaultImage} className='w-2/12 h-2/12'/>
+            <h2>{item?.titleText?.text}</h2>
+            
           </div>
-  )
-    })}
-  </div>
-  
-}
+        );
+      })}
+    </div>
+  );
+};
 
-export default MainCards
+export default MainCards;
