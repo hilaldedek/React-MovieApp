@@ -1,6 +1,8 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import MainCards from '../components/MainCards';
+import { updateCurrentUser } from 'firebase/auth';
+import { AuthContext } from '../context/AuthContextProvider';
 
 
 
@@ -9,8 +11,9 @@ const Main = () => {
   const [mainMovie,setmainMovie]=useState("");
   const [name,setName]=useState("harry potter");
   const [finalresult,setfinalresult]=useState("");
+  const {currentUser,setCurrentUser}=useContext(AuthContext);
   // console.log(name);
-
+  console.log(currentUser);
   useEffect(()=>{
     defaultMovies(name);
   },[]);
@@ -72,13 +75,6 @@ try {
                   Search
                 </button>
     </div>
-     
-    {/* {finalresult?.map((item)=>{
-      return(
-        <h2>{item}</h2>
-      )
-    })} */}
-    
 
     <div className="absolute left-1/2 top-0 -z-10 -translate-x-1/2 blur-3xl xl:-top-6" aria-hidden="true">
         <div
@@ -89,7 +85,7 @@ try {
           }}
         />
       </div>
-      
+      {finalresult?.length>0 && <MainCards item={finalresult}/>}
     
     </div>
   )
