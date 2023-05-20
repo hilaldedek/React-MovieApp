@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react'
 import movieIcon from "../assets/icons/movie.png"
 import counterGif from "../assets/icons/counter.gif"
@@ -9,7 +9,6 @@ import {
 } from '@heroicons/react/24/outline'
 import { Link } from 'react-router-dom'
 import { logOut } from '../auth/firebase'
-
 
 
 const Navbar = () => {

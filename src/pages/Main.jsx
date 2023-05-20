@@ -60,7 +60,8 @@ try {
 	console.error(error);
 }
   }
-  console.log(finalresult);
+  console.log(searchresult);
+  // console.log(finalresult);
   return (
     <div>
       <div id="searchSection" className='shadow-sm relative flex flex-wrap mx-auto isolate overflow-hidden bg-gray-900 py-16 sm:py-24 lg:py-32'>
@@ -68,7 +69,7 @@ try {
           <input
             type="text"
             name="input"
-            className="block rounded-md border-0 py-1.5 pl-7 pr-20 text-white ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 mt:10 isolate overflow-hidden bg-gray-900 c"
+            className="block rounded-md border-0 py-1.5 pl-7 pr-20 text-white ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 mt:10 isolate overflow-hidden bg-gray-900"
             placeholder="Search a movie" onChange={(e)=>setName(e.target.value)}
           />
       </div>
@@ -76,7 +77,7 @@ try {
                 <button
                     type="submit"
                     id="buttonSection"
-                    className="flex-none rounded-md bg-danger-100 px-3.5 py-2.5 text-sm font-semibold text-black shadow-sm hover:bg-danger-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
+                    className="flex-none rounded-md bg-danger-100 px-3.5 py-2.5 text-sm font-semibold text-black shadow-sm hover:bg-danger-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 "
                   onClick={()=>handleSubmit()}>
                     Search
                   </button>
@@ -94,8 +95,8 @@ try {
         
       </div>
       <div>
-
-        {searchresult?.length>0 && <MainCards item={searchresult}/>}
+        {currentUser===1 && (searchresult?.length>0 && <MainCards item={searchresult}/>)}
+        
         {searchresult?.length===0 && <MainCards item={finalresult}/>}
       </div>
     </div>

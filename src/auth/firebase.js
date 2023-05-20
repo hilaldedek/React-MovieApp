@@ -4,6 +4,8 @@ import { createUserWithEmailAndPassword, getAuth,signInWithEmailAndPassword,
   signOut,
   updateProfile,
   signInWithPopup,GoogleAuthProvider} from "firebase/auth";
+import { useContext } from "react";
+import { AuthContext } from "../context/AuthContextProvider";
 
 
 
@@ -34,6 +36,7 @@ export const createUser = async(email,password,navigate,displayName) =>{
     alert(error)
   }
 }
+
 export const signIn = async (email, password, navigate) => {
   try {
     await signInWithEmailAndPassword(auth, email, password);

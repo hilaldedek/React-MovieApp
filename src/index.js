@@ -4,13 +4,14 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import "tw-elements";
+import AuthContextProvider from './context/AuthContextProvider';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    
-        
+
             <App /> 
+            
         
     
     

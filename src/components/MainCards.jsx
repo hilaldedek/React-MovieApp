@@ -3,12 +3,15 @@ import defaultImage from '../assets/icons/defaultImage.jpeg';
 
 
 const MainCards = ({ item }) => {
+  if (!Array.isArray(item)) {
+    item = []; 
+  }
   return (
     <div className='flex flex-wrap justify-center  m-10 '>
       {item?.map((item, index) => {
         return (
-          <div className='text-white flex flex-col mx-2 my-3 px-1.5 py-5 w-80 h-auto justify-center items-center bg-gray-900' key={index}>
-            <img src={item?.primaryImage?.url || defaultImage} className='w-64 h-25'/>
+          <div className='text-white flex flex-col mx-2 my-3 px-1.5 py-5 w-80 h-auto justify-center items-center bg-gray-900 rounded-lg' key={index}>
+            <img src={item?.primaryImage?.url || defaultImage} className='w-64 h-25 rounded-lg'/>
             <h2 className='mt-3 text-center'>{item?.titleText?.text}</h2>
             <div className='flex flex-row my-3'>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-7 h-7 mr-2 text-green-400 hover:text-green-600 hover:animate-ping">

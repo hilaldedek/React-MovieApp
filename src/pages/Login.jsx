@@ -96,7 +96,7 @@ const Login = () => {
               
           </div>
 
-            <img src={gif}  alt='gif'/>
+            <img src={gif}  alt='gif' className='animate-pulse'/>
         </div>
       </div>
       <div className="absolute left-1/2 top-0 -z-10 -translate-x-1/2 blur-3xl xl:-top-6" aria-hidden="true">
