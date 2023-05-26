@@ -2,7 +2,8 @@ import React, { useEffect } from 'react';
 import defaultImage from '../assets/icons/defaultImage.jpeg';
 
 
-const MainCards = ({ item }) => {
+const MainCards = ({item}) => {
+  console.log(item)
   if (!Array.isArray(item)) {
     item = []; 
   }

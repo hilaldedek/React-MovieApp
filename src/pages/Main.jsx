@@ -95,7 +95,7 @@ try {
         
       </div>
       <div>
-        {currentUser===1 && (searchresult?.length>0 && <MainCards item={searchresult}/>)}
+        {(searchresult.length>0 && <MainCards item={searchresult}/>)}
         
         {searchresult?.length===0 && <MainCards item={finalresult}/>}
       </div>
