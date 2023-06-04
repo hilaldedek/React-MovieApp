@@ -11,7 +11,7 @@ const App = () => {
     <div>
       <AuthContextProvider>
           <AppRouter/>  
-</AuthContextProvider>
+      </AuthContextProvider>
     </div>
   );
 };

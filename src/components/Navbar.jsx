@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { useState } from 'react'
 import movieIcon from "../assets/icons/movie.png"
 import counterGif from "../assets/icons/counter.gif"
@@ -9,10 +9,15 @@ import {
 } from '@heroicons/react/24/outline'
 import { Link } from 'react-router-dom'
 import { logOut } from '../auth/firebase'
+import { AuthContext } from '../context/AuthContextProvider'
 
+ 
 
 const Navbar = () => {
-
+  const{currentUser,setCurrentUser}=useContext(AuthContext);
+  const userDisplayName=currentUser.displayName
+  console.log(userDisplayName);
+  const [name,setName]=useState("")
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   return (
     <div>
@@ -44,6 +49,13 @@ const Navbar = () => {
           <a href="/" className="text-sm font-semibold leading-6 text-gray-900" onClick={()=>logOut()} >
             Logout
           </a>
+          <div>
+            {currentUser && (
+              <h3>
+                Welcome {userDisplayName}!
+              </h3>
+            )}
+          </div>
         </div>
       </nav>
       <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>

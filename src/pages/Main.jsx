@@ -16,7 +16,13 @@ const Main = () => {
   console.log(name);
   console.log(currentUser);
   const handleSubmit=(e)=>{
-      getMovies(name);
+    if (currentUser){
+        getMovies(name)
+    }
+    else{
+      alert("lütfen hesabınız yoksa kayır olun eğer hesabınız varsa giriş yapın")
+    }
+      ;
 }
   useEffect(()=>{
     defaultMovies();
