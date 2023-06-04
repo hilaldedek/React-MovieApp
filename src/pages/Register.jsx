@@ -112,7 +112,7 @@ const Register = () => {
               </div>
               </div>
           </div>
-          <img src={gif} alt='gif' className='animate-pulse'/>
+          <img src={gif} alt='gif'/>
 
         </div>
       </div>

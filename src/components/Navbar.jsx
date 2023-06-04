@@ -1,7 +1,6 @@
 import React, { useContext, useEffect } from 'react'
 import { useState } from 'react'
 import movieIcon from "../assets/icons/movie.png"
-import counterGif from "../assets/icons/counter.gif"
 import { Dialog} from '@headlessui/react'
 import {
   Bars3Icon,
@@ -10,6 +9,8 @@ import {
 import { Link } from 'react-router-dom'
 import { logOut } from '../auth/firebase'
 import { AuthContext } from '../context/AuthContextProvider'
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
  
 
@@ -21,6 +22,20 @@ const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   return (
     <div>
+      <ToastContainer
+position="top-right"
+autoClose={5000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+theme="light"
+/>
+{/* Same as */}
+<ToastContainer />  
         <header className="bg-indigo-100">
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
         <div className="flex lg:flex-1">
@@ -49,7 +64,7 @@ const Navbar = () => {
           <a href="/" className="text-sm font-semibold leading-6 text-gray-900" onClick={()=>logOut()} >
             Logout
           </a>
-          <div>
+          <div className='mx-8 font-serif italic text-xl'>
             {currentUser && (
               <h3>
                 Welcome {userDisplayName}!
@@ -58,9 +73,10 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
+      
       <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
         <div className="fixed inset-0 z-10" />
-        <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-indigo-200 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+        <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-indigo-100 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
             <button
               type="button"
@@ -72,6 +88,13 @@ const Navbar = () => {
             </button>
           </div>
           <div className="mt-6 flow-root">
+          <div className='text-center font-serif italic text-xl'>
+            {currentUser && (
+              <h3>
+                Welcome {userDisplayName}!
+              </h3>
+            )}
+          </div>
             <div className="-my-6 divide-y divide-gray-500/10">
               <div className="py-6">
                 <a
@@ -92,7 +115,6 @@ const Navbar = () => {
                 >
                   Logout
                 </a>
-                <img src={counterGif} alt="counter"/>
               </div>
             </div> 
           </div>

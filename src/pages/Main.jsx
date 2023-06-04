@@ -3,6 +3,9 @@ import React, { useContext, useEffect, useState } from 'react'
 import MainCards from '../components/MainCards';
 import { updateCurrentUser } from 'firebase/auth';
 import { AuthContext } from '../context/AuthContextProvider';
+import { ToastContainer,toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 
 
@@ -13,6 +16,18 @@ const Main = () => {
   const [finalresult,setfinalresult]=useState("");
   const [searchresult,setsearchresult]=useState("");
   const {currentUser,setCurrentUser}=useContext(AuthContext);
+  const notify=()=>{
+    toast.info('If you do not have an account register, if you do, please log in!', {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      });
+  }
   console.log(name);
   console.log(currentUser);
   const handleSubmit=(e)=>{
@@ -20,7 +35,8 @@ const Main = () => {
         getMovies(name)
     }
     else{
-      alert("lütfen hesabınız yoksa kayır olun eğer hesabınız varsa giriş yapın")
+      notify();
+      
     }
       ;
 }
@@ -88,6 +104,20 @@ try {
                     Search
                   </button>
       </div>
+      <ToastContainer
+position="top-right"
+autoClose={5000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+theme="light"
+/>
+{/* Same as */}
+<ToastContainer />  
 
       <div className="absolute left-1/2 top-0 -z-10 -translate-x-1/2 blur-3xl xl:-top-6" aria-hidden="true">
           <div

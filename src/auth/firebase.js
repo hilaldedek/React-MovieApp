@@ -6,6 +6,9 @@ import { createUserWithEmailAndPassword, getAuth,signInWithEmailAndPassword,
   signInWithPopup,GoogleAuthProvider} from "firebase/auth";
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContextProvider";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 
 
@@ -21,11 +24,25 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 // Initialize Firebase Authentication and get a reference to the service
+const notifyRegister=()=>{
+  toast.success('Register successfully', {
+    position: "top-right",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "light",
+    });
+}
+
 const auth = getAuth(app);
 export const createUser = async(email,password,navigate,displayName) =>{
   console.log("selam firebasedesin");
   try{
     let userCredential =await createUserWithEmailAndPassword(auth, email, password);
+    notifyRegister();
     await updateProfile(auth.currentUser, {
       displayName: displayName,
     });
@@ -40,6 +57,7 @@ export const createUser = async(email,password,navigate,displayName) =>{
 export const signIn = async (email, password, navigate) => {
   try {
     await signInWithEmailAndPassword(auth, email, password);
+    notifySignIn();
     navigate("/");
   } catch (error) {
     alert(error.message);
@@ -57,9 +75,39 @@ export const userObserver = (setCurrentUser) => {
   });
 };
 
+const notifySignIn=()=>{
+  toast.success('SignIn successfully', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        });
+      }
+
+// const notifyLogout=()=>{
+//   toast.success('Logout successfully', {
+//     position: "top-right",
+//     autoClose: 5000,
+//     hideProgressBar: false,
+//     closeOnClick: true,
+//     pauseOnHover: true,
+//     draggable: true,
+//     progress: undefined,
+//     theme: "light",
+//     });
+  
+// }
+
 export const logOut = () => {
   signOut(auth);
+  // notifyLogout();
 };
+
+
 
 export const signUpWithGoogle = (navigate) => {
   const provider = new GoogleAuthProvider();
