@@ -130,6 +130,7 @@ theme="light"
         </div>
         
       </div>
+      <h1 className='text-center mt-10 text-4xl bg-gray-900 text-indigo-100 py-5'>Upcoming Releases</h1>
       <div>
         {(searchresult.length>0 && <MainCards item={searchresult}/>)}
         
